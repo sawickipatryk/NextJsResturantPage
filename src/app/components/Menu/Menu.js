@@ -16,6 +16,70 @@ import theme from '@/app/theme/theme'
 import menu1 from './menu1.jpg'
 import menu2 from './menu2.jpg'
 
+const menuArrayFirst = [
+  {
+    id: 1,
+    title: ' Fines tartare steak',
+    descirption: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aperiam?',
+    prize: 50
+  },
+  {
+    id: 2,
+    title: ' Fines tartare steak',
+    descirption: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aperiam?',
+    prize: 50
+  },
+  {
+    id: 3,
+    title: ' Fines tartare steak',
+    descirption: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aperiam?',
+    prize: 50
+  },
+  {
+    id: 4,
+    title: ' Fines tartare steak',
+    descirption: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aperiam?',
+    prize: 50
+  },
+  {
+    id: 5,
+    title: ' Fines tartare steak',
+    descirption: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aperiam?',
+    prize: 50
+  }
+]
+const menuArraySecond = [
+  {
+    id: 1,
+    title: ' Fines tartare steak',
+    descirption: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aperiam?',
+    prize: 50
+  },
+  {
+    id: 2,
+    title: ' Fines tartare steak',
+    descirption: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aperiam?',
+    prize: 50
+  },
+  {
+    id: 3,
+    title: ' Fines tartare steak',
+    descirption: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aperiam?',
+    prize: 50
+  },
+  {
+    id: 4,
+    title: ' Fines tartare steak',
+    descirption: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aperiam?',
+    prize: 50
+  },
+  {
+    id: 5,
+    title: ' Fines tartare steak',
+    descirption: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aperiam?',
+    prize: 50
+  }
+]
 export const Menu = (props) => {
   const {
     sx,
@@ -102,196 +166,56 @@ export const Menu = (props) => {
                   </Typography>
                 </Box>
                 <List sx={{ width: '100%' }}>
-                  <ListItem alignItems={'flex-start'}>
-                    <ListItemText
-                      primary={
+                  {
+                    menuArrayFirst.map((menuItem) => {
+                      return (
                         <Box
-                          display={'flex'}
-                          alignItems={'center'}
-                          justifyContent={'space-between'}
+                          key={menuItem.id}
                         >
-                          <Typography
-                            variant={'h6'}
-                            fontWeight={theme.typography.fontWeightBold}
+                          <ListItem
+                            alignItems={'flex-start'}
                           >
-                            Fines tartare steak
-                          </Typography>
-                          <Typography
-                            variant={'body2'}
-                          >
-                            $50
-                          </Typography>
+                            <ListItemText
+                              primary={
+                                <Box
+                                  display={'flex'}
+                                  alignItems={'center'}
+                                  justifyContent={'space-between'}
+                                >
+                                  <Typography
+                                    variant={'h6'}
+                                    fontWeight={theme.typography.fontWeightBold}
+                                  >
+                                    Fines tartare steak
+                                  </Typography>
+                                  <Typography
+                                    variant={'body2'}
+                                  >
+                                    $50
+                                  </Typography>
+                                </Box>
+                           }
+                              secondary={
+                                <Typography
+                                  color={theme.palette.text.secondary}
+                                  variant={'body2'}
+                                >
+                                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aperiam?
+                                </Typography>
+                           }
+                            />
+                          </ListItem>
+                          <Divider
+                            component={'li'}
+                            sx={{
+                              color: theme.palette.primary.main
+                            }}
+                            variant={'middle'}
+                          />
                         </Box>
-                      }
-                      secondary={
-                        <Typography
-                          color={theme.palette.text.secondary}
-                          variant={'body2'}
-                        >
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aperiam?
-                        </Typography>
-                      }
-                    />
-                  </ListItem>
-                  <Divider
-                    component={'li'}
-                    sx={{
-                      color: theme.palette.primary.main
-                    }}
-                    variant={'middle'}
-                  />
-                  <ListItem alignItems={'flex-start'}>
-                    <ListItemText
-                      primary={
-                        <Box
-                          display={'flex'}
-                          alignItems={'center'}
-                          justifyContent={'space-between'}
-                        >
-                          <Typography
-                            variant={'h6'}
-                            fontWeight={theme.typography.fontWeightBold}
-                          >
-                            Fines tartare steak
-                          </Typography>
-                          <Typography
-                            variant={'body2'}
-                          >
-                            $50
-                          </Typography>
-                        </Box>
-                      }
-                      secondary={
-                        <Typography
-                          color={theme.palette.text.secondary}
-                          variant={'body2'}
-                        >
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aperiam?
-                        </Typography>
-                      }
-                    />
-                  </ListItem>
-                  <Divider
-                    component={'li'}
-                    sx={{
-                      color: theme.palette.primary.main
-                    }}
-                    variant={'middle'}
-                  />
-                  <ListItem alignItems={'flex-start'}>
-                    <ListItemText
-                      primary={
-                        <Box
-                          display={'flex'}
-                          alignItems={'center'}
-                          justifyContent={'space-between'}
-                        >
-                          <Typography
-                            variant={'h6'}
-                            fontWeight={theme.typography.fontWeightBold}
-                          >
-                            Fines tartare steak
-                          </Typography>
-                          <Typography
-                            variant={'body2'}
-                          >
-                            $50
-                          </Typography>
-                        </Box>
-                      }
-                      secondary={
-                        <Typography
-                          color={theme.palette.text.secondary}
-                          variant={'body2'}
-                        >
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aperiam?
-                        </Typography>
-                      }
-                    />
-                  </ListItem>
-                  <Divider
-                    component={'li'}
-                    sx={{
-                      color: theme.palette.primary.main
-                    }}
-                    variant={'middle'}
-                  />
-                  <ListItem alignItems={'flex-start'}>
-                    <ListItemText
-                      primary={
-                        <Box
-                          display={'flex'}
-                          alignItems={'center'}
-                          justifyContent={'space-between'}
-                        >
-                          <Typography
-                            variant={'h6'}
-                            fontWeight={theme.typography.fontWeightBold}
-                          >
-                            Fines tartare steak
-                          </Typography>
-                          <Typography
-                            variant={'body2'}
-                          >
-                            $50
-                          </Typography>
-                        </Box>
-                      }
-                      secondary={
-                        <Typography
-                          color={theme.palette.text.secondary}
-                          variant={'body2'}
-                        >
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aperiam?
-                        </Typography>
-                      }
-                    />
-                  </ListItem>
-                  <Divider
-                    component={'li'}
-                    sx={{
-                      color: theme.palette.primary.main
-                    }}
-                    variant={'middle'}
-                  />
-                  <ListItem alignItems={'flex-start'}>
-                    <ListItemText
-                      primary={
-                        <Box
-                          display={'flex'}
-                          alignItems={'center'}
-                          justifyContent={'space-between'}
-                        >
-                          <Typography
-                            variant={'h6'}
-                            fontWeight={theme.typography.fontWeightBold}
-                          >
-                            Fines tartare steak
-                          </Typography>
-                          <Typography
-                            variant={'body2'}
-                          >
-                            $50
-                          </Typography>
-                        </Box>
-                      }
-                      secondary={
-                        <Typography
-                          color={theme.palette.text.secondary}
-                          variant={'body2'}
-                        >
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aperiam?
-                        </Typography>
-                      }
-                    />
-                  </ListItem>
-                  <Divider
-                    component={'li'}
-                    sx={{
-                      color: theme.palette.primary.main
-                    }}
-                    variant={'middle'}
-                  />
+                      )
+                    })
+                  }
 
                 </List>
               </Grid>
@@ -361,197 +285,56 @@ export const Menu = (props) => {
                     width: '100%'
                   }}
                 >
-                  <ListItem alignItems={'flex-start'}>
-                    <ListItemText
-                      primary={
-                        <Box
-                          display={'flex'}
-                          alignItems={'center'}
-                          justifyContent={'space-between'}
-                        >
-                          <Typography
-                            variant={'h6'}
-                            fontWeight={theme.typography.fontWeightBold}
-                          >
-                            Fines tartare steak
-                          </Typography>
-                          <Typography
-                            variant={'body2'}
-                          >
-                            $50
-                          </Typography>
-                        </Box>
-                      }
-                      secondary={
-                        <Typography
-                          color={theme.palette.text.secondary}
-                          variant={'body2'}
-                        >
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aperiam?
-                        </Typography>
-                      }
-                    />
-                  </ListItem>
-                  <Divider
-                    component={'li'}
-                    sx={{
-                      color: theme.palette.primary.main
-                    }}
-                    variant={'middle'}
-                  />
-                  <ListItem alignItems={'flex-start'}>
-                    <ListItemText
-                      primary={
-                        <Box
-                          display={'flex'}
-                          alignItems={'center'}
-                          justifyContent={'space-between'}
-                        >
-                          <Typography
-                            variant={'h6'}
-                            fontWeight={theme.typography.fontWeightBold}
-                          >
-                            Fines tartare steak
-                          </Typography>
-                          <Typography
-                            variant={'body2'}
-                          >
-                            $50
-                          </Typography>
-                        </Box>
-                      }
-                      secondary={
-                        <Typography
-                          color={theme.palette.text.secondary}
-                          variant={'body2'}
-                        >
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aperiam?
-                        </Typography>
-                      }
-                    />
-                  </ListItem>
-                  <Divider
-                    component={'li'}
-                    sx={{
-                      color: theme.palette.primary.main
-                    }}
-                    variant={'middle'}
-                  />
-                  <ListItem alignItems={'flex-start'}>
-                    <ListItemText
-                      primary={
-                        <Box
-                          display={'flex'}
-                          alignItems={'center'}
-                          justifyContent={'space-between'}
-                        >
-                          <Typography
-                            variant={'h6'}
-                            fontWeight={theme.typography.fontWeightBold}
-                          >
-                            Fines tartare steak
-                          </Typography>
-                          <Typography
-                            variant={'body2'}
-                          >
-                            $50
-                          </Typography>
-                        </Box>
-                      }
-                      secondary={
-                        <Typography
-                          color={theme.palette.text.secondary}
-                          variant={'body2'}
-                        >
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aperiam?
-                        </Typography>
-                      }
-                    />
-                  </ListItem>
-                  <Divider
-                    component={'li'}
-                    sx={{
-                      color: theme.palette.primary.main
-                    }}
-                    variant={'middle'}
-                  />
-                  <ListItem alignItems={'flex-start'}>
-                    <ListItemText
-                      primary={
-                        <Box
-                          display={'flex'}
-                          alignItems={'center'}
-                          justifyContent={'space-between'}
-                        >
-                          <Typography
-                            variant={'h6'}
-                            fontWeight={theme.typography.fontWeightBold}
-                          >
-                            Fines tartare steak
-                          </Typography>
-                          <Typography
-                            variant={'body2'}
-                          >
-                            $50
-                          </Typography>
-                        </Box>
-                      }
-                      secondary={
-                        <Typography
-                          color={theme.palette.text.secondary}
-                          variant={'body2'}
-                        >
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aperiam?
-                        </Typography>
-                      }
-                    />
-                  </ListItem>
-                  <Divider
-                    component={'li'}
-                    sx={{
-                      color: theme.palette.primary.main
-                    }}
-                    variant={'middle'}
-                  />
-                  <ListItem alignItems={'flex-start'}>
-                    <ListItemText
-                      primary={
-                        <Box
-                          display={'flex'}
-                          alignItems={'center'}
-                          justifyContent={'space-between'}
-                        >
-                          <Typography
-                            variant={'h6'}
-                            fontWeight={theme.typography.fontWeightBold}
-                          >
-                            Fines tartare steak
-                          </Typography>
-                          <Typography
-                            variant={'body2'}
-                          >
-                            $50
-                          </Typography>
-                        </Box>
-                      }
-                      secondary={
-                        <Typography
-                          color={theme.palette.text.secondary}
-                          variant={'body2'}
-                        >
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aperiam?
-                        </Typography>
-                      }
-                    />
-                  </ListItem>
-                  <Divider
-                    component={'li'}
-                    sx={{
-                      color: theme.palette.primary.main
-                    }}
-                    variant={'middle'}
-                  />
-
+                  {
+                   menuArraySecond.map((menuItem) => {
+                     return (
+                       <Box
+                         key={menuItem.id}
+                       >
+                         <ListItem
+                           alignItems={'flex-start'}
+                         >
+                           <ListItemText
+                             primary={
+                               <Box
+                                 display={'flex'}
+                                 alignItems={'center'}
+                                 justifyContent={'space-between'}
+                               >
+                                 <Typography
+                                   variant={'h6'}
+                                   fontWeight={theme.typography.fontWeightBold}
+                                 >
+                                   Fines tartare steak
+                                 </Typography>
+                                 <Typography
+                                   variant={'body2'}
+                                 >
+                                   $50
+                                 </Typography>
+                               </Box>
+                            }
+                             secondary={
+                               <Typography
+                                 color={theme.palette.text.secondary}
+                                 variant={'body2'}
+                               >
+                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aperiam?
+                               </Typography>
+                            }
+                           />
+                         </ListItem>
+                         <Divider
+                           component={'li'}
+                           sx={{
+                             color: theme.palette.primary.main
+                           }}
+                           variant={'middle'}
+                         />
+                       </Box>
+                     )
+                   })
+                  }
                 </List>
               </Grid>
             </Grid>
