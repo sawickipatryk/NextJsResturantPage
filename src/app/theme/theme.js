@@ -1,9 +1,14 @@
 'use client'
-import { Roboto } from 'next/font/google'
+// eslint-disable-next-line camelcase
+import { Roboto, Dancing_Script } from 'next/font/google'
 import { createTheme, responsiveFontSizes } from '@mui/material/styles'
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
+  subsets: ['latin']
+})
+const dancingcript = Dancing_Script({
+  weight: ['400', '500', '600', '700'],
   subsets: ['latin']
 })
 
@@ -24,19 +29,19 @@ const theme = createTheme({
       white: '#fff'
     },
     primary: {
-      main: '#fff'
+      main: '#C69749'
     },
     secondary: {
       main: '#fff'
     },
     text: {
       primary: 'rgba(255, 255, 255, 1)',
-      secondary: '#fff'
+      secondary: 'rgba(255, 255, 255, 0.7)'
     },
     background: {
-      firstBackgroundColor: '#fff',
-      secondBackgroundColor: '#fff',
-      navBarBackgroundColor: '#fff'
+      firstBackgroundColor: '#183D3D',
+      secondBackgroundColor: '#5C8374',
+      navBarBackgroundColor: '#111'
     }
   },
   shape: {
@@ -46,7 +51,7 @@ const theme = createTheme({
     0: '0 15px 50px 0 #0000001a;'
   },
   typography: {
-    fontFamily: roboto.style.fontFamily,
+    fontFamily: [roboto.style.fontFamily, dancingcript.style.fontFamily],
     fontWeightBold: '700',
     fontWeightMedium: '500',
     fontWeightRegular: '400',
@@ -70,14 +75,14 @@ const theme = createTheme({
       fontSize: '22px'
     },
     subtitle1: {
-      fontSize: '28px'
+      fontSize: '24px'
     },
     body1: {
-      fontSize: '18px',
+      fontSize: '20px',
       letterSpacing: '0.3px'
     },
     body2: {
-      fontSize: '17px'
+      fontSize: '16px'
     },
     button: {
       fontSize: '16px'
