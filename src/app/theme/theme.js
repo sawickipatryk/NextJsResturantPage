@@ -25,7 +25,7 @@ const theme = createTheme({
   palette: {
     mode: 'light',
     common: {
-      black: '#000',
+      black: '#111',
       white: '#fff'
     },
     primary: {
@@ -47,45 +47,53 @@ const theme = createTheme({
   shape: {
     borderRadius: 4
   },
-  shadows: {
-    0: '0 15px 50px 0 #0000001a;'
-  },
   typography: {
-    fontFamily: [roboto.style.fontFamily, dancingcript.style.fontFamily],
+    fontFamily: [dancingcript.style.fontFamily, roboto.style.fontFamily],
     fontWeightBold: '700',
     fontWeightMedium: '500',
     fontWeightRegular: '400',
     fontWeightLight: '300',
     h1: {
-      fontSize: '48px'
+      fontSize: '48px',
+      color: '#fff'
     },
     h2: {
-      fontSize: '42px'
+      fontSize: '42px',
+      color: '#fff'
     },
     h3: {
-      fontSize: '38px'
+      fontSize: '38px',
+      color: '#fff'
     },
     h4: {
-      fontSize: '32px'
+      fontSize: '32px',
+      color: '#fff'
     },
     h5: {
-      fontSize: '28px'
+      fontSize: '28px',
+      color: '#fff'
     },
     h6: {
-      fontSize: '22px'
+      fontSize: '22px',
+      color: '#fff'
     },
     subtitle1: {
-      fontSize: '24px'
+      fontSize: '24px',
+      color: '#fff'
     },
     body1: {
       fontSize: '20px',
+      color: '#fff',
       letterSpacing: '0.3px'
     },
     body2: {
-      fontSize: '16px'
+      fontSize: '16px',
+      color: '#fff'
     },
     button: {
-      fontSize: '16px'
+      fontSize: '16px',
+      fontWeight: '700',
+      letterSpacing: '1.3px'
     }
   }
 
