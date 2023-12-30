@@ -1,6 +1,8 @@
 import React from 'react'
 import { Box } from '@mui/material'
 
+import { useForm, FormProvider } from 'react-hook-form'
+
 import contactBgI from './contactBgI.jpg'
 
 import ContactForm from '../ContactForm'
@@ -10,6 +12,18 @@ export const Contact = (props) => {
     sx,
     ...otherProps
   } = props
+
+  const methods = useForm()
+  const { handleSubmit, rest } = methods
+
+  const onSubmit = handleSubmit(
+    (data, e) => {
+      rest()
+    },
+    (errors, e) => {
+
+    }
+  )
 
   return (
     <Box
@@ -24,11 +38,19 @@ export const Contact = (props) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundAttachment: 'fixed'
+        backgroundAttachment: 'fixed',
+        padding: '40px 12px'
       }}
       {...otherProps}
     >
-      <ContactForm/>
+      <FormProvider
+        {...methods}
+      >
+        <ContactForm
+          onSubmit={onSubmit}
+        />
+      </FormProvider>
+
     </Box>
   )
 }
