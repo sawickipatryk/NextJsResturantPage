@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import Menu from './components/Menu'
 import SpecialFood from './components/SpecialFood'
 import UsefulTips from './components/UsefulTips'
+import Contact from './components/Contact'
 
 export const Home = () => {
   return (
@@ -14,6 +15,7 @@ export const Home = () => {
       <Menu/>
       <UsefulTips/>
       <SpecialFood/>
+      <Contact/>
     </>
   )
 }
