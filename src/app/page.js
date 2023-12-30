@@ -6,6 +6,7 @@ import Menu from './components/Menu'
 import SpecialFood from './components/SpecialFood'
 import UsefulTips from './components/UsefulTips'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 export const Home = () => {
   return (
@@ -16,6 +17,7 @@ export const Home = () => {
       <UsefulTips/>
       <SpecialFood/>
       <Contact/>
+      <Footer/>
     </>
   )
 }
