@@ -3,6 +3,7 @@
 import AboutUs from './components/AboutUs'
 import Hero from './components/Hero'
 import Menu from './components/Menu'
+import UsefulTips from './components/UsefulTips'
 
 export const Home = () => {
   return (
@@ -10,6 +11,7 @@ export const Home = () => {
       <Hero/>
       <AboutUs/>
       <Menu/>
+      <UsefulTips/>
     </>
   )
 }
