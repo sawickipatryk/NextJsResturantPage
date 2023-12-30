@@ -1,15 +1,59 @@
 import { Box, Typography, TextField, Button } from '@mui/material'
+import isEmail from 'validator/lib/isEmail'
+
+import { useFormContext } from 'react-hook-form'
+
 import theme from '@/app/theme/theme'
 
 export const ContactForm = (props) => {
   const {
     sx,
+    onSubmit,
     ...otherProps
   } = props
 
+  const methods = useFormContext()
+
+  const {
+    register,
+    formState: { errors }
+  } = methods
+
+  const registeredNameProps = register('name', {
+    required: {
+      value: true,
+      message: 'name is required'
+    }
+  })
+  const registeredPhoneNumberProps = register('mobileNumber', {
+    required: {
+      value: true,
+      message: 'mobile phone is required'
+    }
+  })
+  const registeredEmailProps = register('emailAddres', {
+    required: {
+      value: true,
+      message: 'email is required'
+    },
+    validate: (email) => isEmail(email) || 'Wrong Email'
+  })
+  const registeredPostcodeProps = register('postcode', {
+    required: {
+      value: true,
+      message: 'postocde is required'
+    }
+  })
+  const registeredTextareaProps = register('textarea', {
+    required: {
+      value: true,
+      message: 'textarea is required'
+    }
+  })
   return (
     <Box
       component={'form'}
+      onSubmit={onSubmit}
       sx={{
         ...sx,
         backgroundColor: theme.palette.background.firstBackgroundColor,
@@ -41,75 +85,94 @@ export const ContactForm = (props) => {
           CONTACT US
         </Typography>
       </Box>
+      <Box>
+
+      </Box>
       <TextField
         size={'small'}
         margin={'normal'}
-        error={false}
+        error={!!errors.name}
         id={'name'}
         label={'Name'}
         defaultValue={''}
-        helperText={''}
+        helperText={errors.name?.message}
         sx={{
-          backgroundColor: theme.palette.background.secondBackgroundColor,
+          '& .MuiInputBase-root': {
+            backgroundColor: theme.palette.background.secondBackgroundColor
+          },
           borderRadius: '5px'
         }}
+        {...registeredNameProps}
       />
       <TextField
         size={'small'}
         margin={'normal'}
-        error={false}
+        error={!!errors.mobileNumber}
         id={'mobileNumber'}
         label={'Mobile Number'}
         defaultValue={''}
-        helperText={''}
+        helperText={errors.mobileNumber?.message}
         sx={{
-          backgroundColor: theme.palette.background.secondBackgroundColor,
+          '& .MuiInputBase-root': {
+            backgroundColor: theme.palette.background.secondBackgroundColor
+          },
           borderRadius: '5px'
         }}
+        {...registeredPhoneNumberProps}
       />
       <TextField
         size={'small'}
         margin={'normal'}
-        error={false}
+        error={!!errors.emailAddres}
         id={'emailAddres'}
         label={'Email Addres'}
         defaultValue={''}
-        helperText={''}
+        helperText={errors.emailAddres?.message}
         sx={{
-          backgroundColor: theme.palette.background.secondBackgroundColor,
+          '& .MuiInputBase-root': {
+            backgroundColor: theme.palette.background.secondBackgroundColor
+          },
           borderRadius: '5px'
         }}
+        {...registeredEmailProps}
       />
       <TextField
         size={'small'}
         margin={'normal'}
-        error={false}
+        error={!!errors.postcode}
         id={'postcode'}
         label={'Your Postecode'}
         defaultValue={''}
-        helperText={''}
+        helperText={errors.postcode?.message}
         sx={{
-          backgroundColor: theme.palette.background.secondBackgroundColor,
+          '& .MuiInputBase-root': {
+            backgroundColor: theme.palette.background.secondBackgroundColor
+          },
           borderRadius: '5px'
         }}
+        {...registeredPostcodeProps}
       />
       <TextField
         size={'small'}
         margin={'normal'}
-        error={false}
+        error={!!errors.textarea}
         multiline
         rows={4}
         id={'textarea'}
         label={'Type your message'}
         defaultValue={''}
-        helperText={''}
+        helperText={errors.textarea?.message}
         sx={{
-          backgroundColor: theme.palette.background.secondBackgroundColor,
+          '& .MuiInputBase-root': {
+            backgroundColor: theme.palette.background.secondBackgroundColor
+          },
           borderRadius: '5px',
           marginBottom: '20px'
         }}
+        {...registeredTextareaProps}
       />
       <Button
+        type={'submit'}
         variant={'contained'}
         sx={{
           margin: 'auto',

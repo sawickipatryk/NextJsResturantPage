@@ -20,7 +20,8 @@
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
-    "react-hook-form": "^7.49.2"
+    "react-hook-form": "^7.49.2",
+    "validator": "^13.11.0"
   },
   "devDependencies": {
     "eslint": "^8",

@@ -14,14 +14,15 @@ export const Contact = (props) => {
   } = props
 
   const methods = useForm()
-  const { handleSubmit, rest } = methods
+  const { handleSubmit, reset } = methods
 
   const onSubmit = handleSubmit(
     (data, e) => {
-      rest()
+      console.log(data, 'data')
+      reset()
     },
     (errors, e) => {
-
+      console.log(errors, 'errors')
     }
   )
 
