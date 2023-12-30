@@ -4,14 +4,24 @@ import { Box, Typography, TextField, Button } from '@mui/material'
 import theme from '@/app/theme/theme'
 
 import isEmail from 'validator/lib/isEmail'
-
 import emailjs from '@emailjs/browser'
+
+import Message from '../Message'
 
 import { useForm } from 'react-hook-form'
 
 import contactBgI from './contactBgI.jpg'
 
 export const Contact = (props) => {
+  const [open, setOpen] = React.useState(false)
+
+  const handleClose = () => {
+    setOpen(false)
+    window.location.reload(true)
+  }
+  const handleOpen = () => {
+    setOpen(true)
+  }
   const {
     sx,
     ...otherProps
@@ -38,7 +48,7 @@ export const Contact = (props) => {
     handleSubmit,
     reset,
     register,
-    formState: { errors }
+    formState: { errors, isSubmitSuccessful }
   } = methods
 
   const registeredNameProps = register('customerName', {
@@ -76,13 +86,17 @@ export const Contact = (props) => {
   const onSubmit = handleSubmit(
     (data, e) => {
       sendEmail()
-      reset()
+      handleOpen()
     },
     (errors, e) => {
       console.log(errors, 'errors')
     }
   )
-
+  React.useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset()
+    }
+  }, [isSubmitSuccessful, reset])
   return (
     <Box
       sx={{
@@ -101,22 +115,7 @@ export const Contact = (props) => {
       }}
       {...otherProps}
     >
-      <Box>
-        <Typography
-          variant={'subtitle1'}
-          fontWeight={theme.typography.fontWeightBold}
-          fontFamily={theme.typography.fontFamily[0]}
-          color={theme.palette.text.secondary}
-        >
-          get in touch
-        </Typography>
-        <Typography
-          variant={'h1'}
-          fontWeight={theme.typography.fontWeightBold}
-        >
-          CONTACT US
-        </Typography>
-      </Box>
+
       <Box
         component={'form'}
         onSubmit={onSubmit}
@@ -136,6 +135,22 @@ export const Contact = (props) => {
         autoComplete={'off'}
         {...otherProps}
       >
+        <Box>
+          <Typography
+            variant={'subtitle1'}
+            fontWeight={theme.typography.fontWeightBold}
+            fontFamily={theme.typography.fontFamily[0]}
+            color={theme.palette.text.secondary}
+          >
+            get in touch
+          </Typography>
+          <Typography
+            variant={'h1'}
+            fontWeight={theme.typography.fontWeightBold}
+          >
+            CONTACT US
+          </Typography>
+        </Box>
         <TextField
           size={'small'}
           margin={'normal'}
@@ -143,7 +158,10 @@ export const Contact = (props) => {
           id={'customerName'}
           label={'Name'}
           helperText={errors.customerName?.message}
+          inputProps={{ style: { fontSize: '18px' } }}
+          InputLabelProps={{ style: { fontSize: '18px' } }}
           sx={{
+            fontSize: '10px',
             '& .MuiInputBase-root': {
               backgroundColor: theme.palette.background.secondBackgroundColor
             }
@@ -156,6 +174,8 @@ export const Contact = (props) => {
           error={!!errors.mobileNumber}
           id={'mobileNumber'}
           label={'Mobile Number'}
+          inputProps={{ style: { fontSize: '18px' } }}
+          InputLabelProps={{ style: { fontSize: '18px' } }}
           helperText={errors.mobileNumber?.message}
           sx={{
             '& .MuiInputBase-root': {
@@ -171,6 +191,8 @@ export const Contact = (props) => {
           error={!!errors.emailAddres}
           id={'emailAddres'}
           label={'Email Addres'}
+          inputProps={{ style: { fontSize: '18px' } }}
+          InputLabelProps={{ style: { fontSize: '18px' } }}
           helperText={errors.emailAddres?.message}
           sx={{
             '& .MuiInputBase-root': {
@@ -185,6 +207,8 @@ export const Contact = (props) => {
           error={!!errors.postcode}
           id={'postcode'}
           label={'Your Postecode'}
+          inputProps={{ style: { fontSize: '18px' } }}
+          InputLabelProps={{ style: { fontSize: '18px' } }}
           helperText={errors.postcode?.message}
           sx={{
             '& .MuiInputBase-root': {
@@ -201,8 +225,11 @@ export const Contact = (props) => {
           label={'Your Message'}
           multiline
           rows={4}
+          inputProps={{ style: { fontSize: '18px' } }}
+          InputLabelProps={{ style: { fontSize: '18px' } }}
           helperText={errors.message?.message}
           sx={{
+            marginBottom: '20px',
             '& .MuiInputBase-root': {
               backgroundColor: theme.palette.background.secondBackgroundColor
             }
@@ -214,12 +241,23 @@ export const Contact = (props) => {
           variant={'contained'}
           sx={{
             margin: 'auto',
-            color: 'white'
+            color: 'white',
+            padding: '8px 30px'
           }}
         >
           SEND
         </Button>
       </Box>
+      {
+        open
+          ? (
+            <Message
+              open={open}
+              handleClose={handleClose}
+            />
+            )
+          : null
+      }
 
     </Box>
   )

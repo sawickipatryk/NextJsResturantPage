@@ -15,7 +15,24 @@ import AdbIcon from '@mui/icons-material/Adb'
 import MenuIcon from '@mui/icons-material/Menu'
 import theme from '@/app/theme/theme'
 
-const pages = ['HOME', 'ABOUT US', 'MENU', 'CONTACT']
+const pages = [
+  {
+    name: 'HOME',
+    href: '#home'
+  },
+  {
+    name: 'ABOUT US',
+    href: '#about'
+  },
+  {
+    name: 'MENU',
+    href: '#menu'
+  },
+  {
+    name: 'CONTACT',
+    href: '#contact'
+  }
+]
 
 export const NavBar = (props) => {
   const {
@@ -74,6 +91,7 @@ export const NavBar = (props) => {
           <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
+                href={page.href}
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{
@@ -84,7 +102,7 @@ export const NavBar = (props) => {
                   }
                 }}
               >
-                {page}
+                {page.name}
               </Button>
             ))}
           </Box>
@@ -134,13 +152,15 @@ export const NavBar = (props) => {
             >
               {pages.map((page) => (
                 <MenuItem
+                  component={'a'}
+                  href={page.href}
                   sx={{
                     padding: '12px 16px'
                   }}
-                  key={page}
+                  key={page.name}
                   onClick={handleCloseNavMenu}
                 >
-                  <Typography textAlign={'center'}>{page}</Typography>
+                  <Typography textAlign={'center'}>{page.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>

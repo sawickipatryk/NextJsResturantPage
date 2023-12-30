@@ -11,12 +11,37 @@ import Footer from './components/Footer'
 export const Home = () => {
   return (
     <>
-      <Hero/>
-      <AboutUs/>
-      <Menu/>
-      <UsefulTips/>
-      <SpecialFood/>
-      <Contact/>
+      <div
+        id={'home'}
+      >
+        <Hero/>
+      </div>
+      <div
+        id={'about'}
+      >
+        <AboutUs/>
+      </div>
+      <div
+        id={'menu'}
+      >
+        <Menu/>
+      </div>
+      <div
+        id={'tips'}
+      >   <Contact/>
+        <UsefulTips/>
+      </div>
+      <div
+        id={'special'}
+      >
+        <SpecialFood/>
+      </div>
+      <div
+        id={'contact'}
+      >
+        <Contact/>
+      </div>
+
       <Footer/>
     </>
   )
