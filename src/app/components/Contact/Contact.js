@@ -52,6 +52,7 @@ export const Contact = (props) => {
 
   const onSubmit = handleSubmit(
     (data, e) => {
+      console.log(data)
       sendEmail()
       handleOpen()
     },
@@ -131,6 +132,7 @@ export const Contact = (props) => {
           }}
           render={({ field: { onChange, value } }) => (
             <TextField
+              name={'customerName'}
               margin={'normal'}
               size={'small'}
               onChange={onChange}
@@ -163,6 +165,7 @@ export const Contact = (props) => {
           }}
           render={({ field: { onChange, value } }) => (
             <TextField
+              name={'mobileNumber'}
               margin={'normal'}
               size={'small'}
               onChange={onChange}
@@ -195,6 +198,7 @@ export const Contact = (props) => {
           }}
           render={({ field: { onChange, value } }) => (
             <TextField
+              name={'emailAddres'}
               margin={'normal'}
               size={'small'}
               onChange={onChange}
@@ -226,6 +230,7 @@ export const Contact = (props) => {
           }}
           render={({ field: { onChange, value } }) => (
             <TextField
+              name={'postcode'}
               margin={'normal'}
               size={'small'}
               onChange={onChange}
@@ -257,6 +262,7 @@ export const Contact = (props) => {
           }}
           render={({ field: { onChange, value } }) => (
             <TextField
+              name={'message'}
               margin={'normal'}
               size={'small'}
               onChange={onChange}
