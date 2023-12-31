@@ -17,18 +17,22 @@ import theme from '@/app/theme/theme'
 
 const pages = [
   {
+    id: 1,
     name: 'HOME',
     href: '#home'
   },
   {
+    id: 2,
     name: 'ABOUT US',
     href: '#about'
   },
   {
+    id: 3,
     name: 'MENU',
     href: '#menu'
   },
   {
+    id: 4,
     name: 'CONTACT',
     href: '#contact'
   }
@@ -92,7 +96,7 @@ export const NavBar = (props) => {
             {pages.map((page) => (
               <Button
                 href={page.href}
-                key={page}
+                key={page.id}
                 onClick={handleCloseNavMenu}
                 sx={{
                   p: 3,
@@ -152,12 +156,12 @@ export const NavBar = (props) => {
             >
               {pages.map((page) => (
                 <MenuItem
+                  key={page.id}
                   component={'a'}
                   href={page.href}
                   sx={{
                     padding: '12px 16px'
                   }}
-                  key={page.name}
                   onClick={handleCloseNavMenu}
                 >
                   <Typography textAlign={'center'}>{page.name}</Typography>

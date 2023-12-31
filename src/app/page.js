@@ -28,7 +28,7 @@ export const Home = () => {
       </div>
       <div
         id={'tips'}
-      >   <Contact/>
+      >
         <UsefulTips/>
       </div>
       <div
