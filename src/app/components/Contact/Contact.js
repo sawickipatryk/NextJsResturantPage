@@ -8,7 +8,7 @@ import emailjs from '@emailjs/browser'
 
 import Message from '../Message'
 
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 
 import contactBgI from './contactBgI.jpg'
 
@@ -17,7 +17,6 @@ export const Contact = (props) => {
 
   const handleClose = () => {
     setOpen(false)
-    window.location.reload(true)
   }
   const handleOpen = () => {
     setOpen(true)
@@ -47,41 +46,9 @@ export const Contact = (props) => {
   const {
     handleSubmit,
     reset,
-    register,
+    control,
     formState: { errors, isSubmitSuccessful }
   } = methods
-
-  const registeredNameProps = register('customerName', {
-    required: {
-      value: true,
-      message: 'name is required'
-    }
-  })
-  const registeredPhoneNumberProps = register('mobileNumber', {
-    required: {
-      value: true,
-      message: 'mobile phone is required'
-    }
-  })
-  const registeredEmailProps = register('emailAddres', {
-    required: {
-      value: true,
-      message: 'email is required'
-    },
-    validate: (email) => isEmail(email) || 'Wrong Email'
-  })
-  const registeredPostcodeProps = register('postcode', {
-    required: {
-      value: true,
-      message: 'postocde is required'
-    }
-  })
-  const registeredMessageProps = register('message', {
-    required: {
-      value: true,
-      message: 'message is required'
-    }
-  })
 
   const onSubmit = handleSubmit(
     (data, e) => {
@@ -151,90 +118,166 @@ export const Contact = (props) => {
             CONTACT US
           </Typography>
         </Box>
-        <TextField
-          size={'small'}
-          margin={'normal'}
-          error={!!errors.customerName}
-          id={'customerName'}
-          label={'Name'}
-          helperText={errors.customerName?.message}
-          inputProps={{ style: { fontSize: '18px' } }}
-          InputLabelProps={{ style: { fontSize: '18px' } }}
-          sx={{
-            fontSize: '10px',
-            '& .MuiInputBase-root': {
-              backgroundColor: theme.palette.background.secondBackgroundColor
-            }
-          }}
-          {...registeredNameProps}
-        />
-        <TextField
-          size={'small'}
-          margin={'normal'}
-          error={!!errors.mobileNumber}
-          id={'mobileNumber'}
-          label={'Mobile Number'}
-          inputProps={{ style: { fontSize: '18px' } }}
-          InputLabelProps={{ style: { fontSize: '18px' } }}
-          helperText={errors.mobileNumber?.message}
-          sx={{
-            '& .MuiInputBase-root': {
-              backgroundColor: theme.palette.background.secondBackgroundColor
-            }
+        <Controller
+          control={control}
+          name={'customerName'}
+          defaultValue={''}
+          rules={{
+            required: {
+              value: true,
+              message: 'Name is required'
 
-          }}
-          {...registeredPhoneNumberProps}
-        />
-        <TextField
-          size={'small'}
-          margin={'normal'}
-          error={!!errors.emailAddres}
-          id={'emailAddres'}
-          label={'Email Addres'}
-          inputProps={{ style: { fontSize: '18px' } }}
-          InputLabelProps={{ style: { fontSize: '18px' } }}
-          helperText={errors.emailAddres?.message}
-          sx={{
-            '& .MuiInputBase-root': {
-              backgroundColor: theme.palette.background.secondBackgroundColor
             }
           }}
-          {...registeredEmailProps}
+          render={({ field: { onChange, value } }) => (
+            <TextField
+              margin={'normal'}
+              size={'small'}
+              onChange={onChange}
+              value={value}
+              error={!!errors.customerName}
+              id={'customerName'}
+              label={'Name'}
+              inputProps={{ style: { fontSize: '18px' } }}
+              InputLabelProps={{ style: { fontSize: '18px' } }}
+              helperText={errors.customerName?.message}
+              fullWidth
+              sx={{
+                '& .MuiInputBase-root': {
+                  backgroundColor: theme.palette.background.secondBackgroundColor
+                }
+              }}
+            />
+          )}
         />
-        <TextField
-          size={'small'}
-          margin={'normal'}
-          error={!!errors.postcode}
-          id={'postcode'}
-          label={'Your Postecode'}
-          inputProps={{ style: { fontSize: '18px' } }}
-          InputLabelProps={{ style: { fontSize: '18px' } }}
-          helperText={errors.postcode?.message}
-          sx={{
-            '& .MuiInputBase-root': {
-              backgroundColor: theme.palette.background.secondBackgroundColor
+        <Controller
+          control={control}
+          name={'mobileNumber'}
+          defaultValue={''}
+          rules={{
+            required: {
+              value: true,
+              message: 'Mobile Phone is required'
+
             }
           }}
-          {...registeredPostcodeProps}
+          render={({ field: { onChange, value } }) => (
+            <TextField
+              margin={'normal'}
+              size={'small'}
+              onChange={onChange}
+              value={value}
+              error={!!errors.mobileNumber}
+              id={'mobileNumber'}
+              label={'Mobile Number'}
+              inputProps={{ style: { fontSize: '18px' } }}
+              InputLabelProps={{ style: { fontSize: '18px' } }}
+              helperText={errors.mobileNumber?.message}
+              fullWidth
+              sx={{
+                '& .MuiInputBase-root': {
+                  backgroundColor: theme.palette.background.secondBackgroundColor
+                }
+              }}
+            />
+          )}
         />
-        <TextField
-          size={'small'}
-          margin={'normal'}
-          error={!!errors.message}
-          id={'message'}
-          label={'Your Message'}
-          multiline
-          rows={4}
-          inputProps={{ style: { fontSize: '18px' } }}
-          InputLabelProps={{ style: { fontSize: '18px' } }}
-          helperText={errors.message?.message}
-          sx={{
-            marginBottom: '20px',
-            '& .MuiInputBase-root': {
-              backgroundColor: theme.palette.background.secondBackgroundColor
+        <Controller
+          control={control}
+          name={'emailAddres'}
+          defaultValue={''}
+          rules={{
+            required: {
+              value: true,
+              message: 'Email is required'
+            },
+            validate: (email) => isEmail(email) || 'Wrong Email'
+          }}
+          render={({ field: { onChange, value } }) => (
+            <TextField
+              margin={'normal'}
+              size={'small'}
+              onChange={onChange}
+              value={value}
+              error={!!errors.emailAddres}
+              id={'emailAddres'}
+              label={'Email Addres'}
+              inputProps={{ style: { fontSize: '18px' } }}
+              InputLabelProps={{ style: { fontSize: '18px' } }}
+              helperText={errors.emailAddres?.message}
+              fullWidth
+              sx={{
+                '& .MuiInputBase-root': {
+                  backgroundColor: theme.palette.background.secondBackgroundColor
+                }
+              }}
+            />
+          )}
+        />
+        <Controller
+          control={control}
+          name={'postcode'}
+          defaultValue={''}
+          rules={{
+            required: {
+              value: true,
+              message: 'Email is required'
             }
           }}
-          {...registeredMessageProps}
+          render={({ field: { onChange, value } }) => (
+            <TextField
+              margin={'normal'}
+              size={'small'}
+              onChange={onChange}
+              value={value}
+              error={!!errors.postcode}
+              id={'postcode'}
+              label={'Your Postecode'}
+              inputProps={{ style: { fontSize: '18px' } }}
+              InputLabelProps={{ style: { fontSize: '18px' } }}
+              helperText={errors.postcode?.message}
+              fullWidth
+              sx={{
+                '& .MuiInputBase-root': {
+                  backgroundColor: theme.palette.background.secondBackgroundColor
+                }
+              }}
+            />
+          )}
+        />
+        <Controller
+          control={control}
+          name={'message'}
+          defaultValue={''}
+          rules={{
+            required: {
+              value: true,
+              message: 'Message is required'
+            }
+          }}
+          render={({ field: { onChange, value } }) => (
+            <TextField
+              margin={'normal'}
+              size={'small'}
+              onChange={onChange}
+              value={value}
+              error={!!errors.message}
+              id={'message'}
+              label={'Your Message'}
+              multiline
+              rows={4}
+              inputProps={{ style: { fontSize: '18px' } }}
+              InputLabelProps={{ style: { fontSize: '18px' } }}
+              helperText={errors.message?.message}
+              fullWidth
+              sx={{
+                marginBottom: '15px',
+                '& .MuiInputBase-root': {
+                  backgroundColor: theme.palette.background.secondBackgroundColor
+                }
+              }}
+            />
+          )}
         />
         <Button
           type={'submit'}
