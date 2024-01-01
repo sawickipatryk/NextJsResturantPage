@@ -69,6 +69,7 @@ export const Hero = (props) => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates nihil assumenda impedit cum sit quia
         </Typography>
         <Button
+          href={'#menu'}
           variant={'contained'}
           sx={{
             color: '#fff'
